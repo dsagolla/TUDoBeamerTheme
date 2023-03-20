@@ -20,34 +20,34 @@
 % If xelatex or lualatex, use fontspec to set fonts
 \newif\if@fontspec\@fontspecfalse
 \ifluatex%
-  \@fontspectrue
+\@fontspectrue
 \else
-  \ifxetex
-    \@fontspectrue
-  \fi
+\ifxetex
+\@fontspectrue
+\fi
 \fi
 
 \if@fontspec
-  \RequirePackage{fontspec}
-  \PassOptionsToPackage{mathrm=sym}{unicode-math}
-  \RequirePackage{unicode-math}
-  % Prefer Akkurat Office (TU Corporate Design Font), Fallback to Fira Sans
-  \IfFontExistsTF{Akkurat Light Office}{
-    \setsansfont{Akkurat Light Office}[
-      Scale=MatchLowercase,
-      BoldFont=Akkurat Office,
-      ItalicFont=FiraSans LightItalic
-    ]
-  }{
-    \setsansfont{FiraSans Light}[
-      Scale=MatchLowercase,
-      BoldFont=FiraSans Medium,
-    ]
-  }
-  \setmonofont{Fira Mono}[Scale=MatchLowercase]
-  \setmathfont{Fira Math}[Scale=MatchLowercase]
+\RequirePackage{fontspec}
+\PassOptionsToPackage{mathrm=sym}{unicode-math}
+\RequirePackage{unicode-math}
+% Prefer Akkurat Office (TU Corporate Design Font), Fallback to Fira Sans
+\IfFontExistsTF{Akkurat Light Office}{
+	\setsansfont{Akkurat Light Office}[
+	Scale=MatchLowercase,
+	BoldFont=Akkurat Office,
+	ItalicFont=FiraSans LightItalic
+	]
+}{
+	\setsansfont{FiraSans Light}[
+	Scale=MatchLowercase,
+	BoldFont=FiraSans Medium,
+	]
+}
+\setmonofont{Fira Mono}[Scale=MatchLowercase]
+\setmathfont{Fira Math}[Scale=MatchLowercase]
 \else
-  \usepackage{FiraSans} 
+\usepackage{FiraSans} 
 \fi
 
 \setbeamertemplate{navigation symbols}{}
@@ -58,33 +58,33 @@
 \setlength{\headerheight}{0.08\paperheight}
 \setbeamertemplate{headline}
 {%
-  \vspace*{10pt}%
-  \leavevmode
-  \begin{beamercolorbox}[
-    wd=0.35\paperwidth,
-    ht=\headerheight,
-    leftskip=\beamer@leftmargin,
-    rightskip=1em,
-  ]{headline}%
-    \includegraphics[height=\headerheight]{logos/tu.pdf}%
-  \end{beamercolorbox}%
-  \begin{beamercolorbox}[
-    wd=0.65\paperwidth,
-    ht=\headerheight,
-    leftskip=1em,
-    rightskip=\beamer@rightmargin,
-  ]{headline}%
-  \usebeamerfont{institute in head/foot}\hfill\insertshortinstitute[respectlinebreaks]
-  \end{beamercolorbox}%
-  \vskip2ex%
-  \ifnum\insertframenumber=1%
-    \vspace{0.4pt}%
-  \else%
-    \hspace{\beamer@leftmargin}%
-    \usebeamercolor{separation line}%
-    \rule{\paperwidth-\beamer@leftmargin-\beamer@rightmargin}{0.4pt}%
-  \fi
-  \vskip2ex
+	\vspace*{10pt}%
+	\leavevmode
+	\begin{beamercolorbox}[
+		wd=0.35\paperwidth,
+		ht=\headerheight,
+		leftskip=\beamer@leftmargin,
+		rightskip=1em,
+		]{headline}%
+		\includegraphics[height=\headerheight]{logos/tu.pdf}%
+	\end{beamercolorbox}%
+	\begin{beamercolorbox}[
+		wd=0.65\paperwidth,
+		ht=\headerheight,
+		leftskip=1em,
+		rightskip=\beamer@rightmargin,
+		]{headline}%
+		\usebeamerfont{institute in head/foot}\hfill\insertshortinstitute[respectlinebreaks]
+	\end{beamercolorbox}%
+	\vskip2ex%
+	\ifnum\insertframenumber=1%
+	\vspace{0.4pt}%
+	\else%
+	\hspace{\beamer@leftmargin}%
+	\usebeamercolor{separation line}%
+	\rule{\paperwidth-\beamer@leftmargin-\beamer@rightmargin}{0.4pt}%
+	\fi
+	\vskip2ex
 }
 
 
@@ -97,101 +97,101 @@
 
 \setbeamertemplate{footline}
 {%
-  \ifnum\insertframenumber=1%
-  \else%
-    \leavevmode
-    \begin{beamercolorbox}[
-      wd=\footerleftwidth,
-      ht=4ex,
-      dp=10pt,
-      leftskip=\beamer@leftmargin,
-    ]{author in head/foot}%
-      {\usebeamerfont{author in head/foot}\insertshortauthor}%
-      \ifx\beamer@shortdate\empty\else%
-      ~|~{\usebeamerfont{date in head/foot}\insertshortdate}%
-      \fi%
-    \end{beamercolorbox}%
-    \begin{beamercolorbox}[
-      wd=\footercenterwidth,
-      ht=3ex,
-      dp=10pt,
-      center,
-    ]{section in head/foot}%
-      \ifx\insertsection\empty%
-      \else%
-        \usebeamerfont{section in head/foot}\insertsection%
-        \ifx\insertsubsection\empty%
-        \else%
-          :~\usebeamerfont{subsection in head/foot}\insertsubsection%
-        \fi
-      \fi%
-    \end{beamercolorbox}%
-    \begin{beamercolorbox}[
-      wd=\footerrightwidth,
-      ht=4ex,
-      dp=10pt,
-      rightskip=\beamer@rightmargin,
-    ]{frame}%
-      \raggedleft%
-      \usebeamerfont{framenumber}\insertframenumber%
-      \if@showtotalframes%
-      ~/~\inserttotalframenumber%
-      \fi%
-    \end{beamercolorbox}%
-  \fi%
+	\ifnum\insertframenumber=1%
+	\else%
+	\leavevmode
+	\begin{beamercolorbox}[
+		wd=\footerleftwidth,
+		ht=4ex,
+		dp=10pt,
+		leftskip=\beamer@leftmargin,
+		]{author in head/foot}%
+		{\usebeamerfont{author in head/foot}\insertshortauthor}%
+		\ifx\beamer@shortdate\empty\else%
+		~|~{\usebeamerfont{date in head/foot}\insertshortdate}%
+		\fi%
+	\end{beamercolorbox}%
+	\begin{beamercolorbox}[
+		wd=\footercenterwidth,
+		ht=3ex,
+		dp=10pt,
+		center,
+		]{section in head/foot}%
+		\ifx\insertsection\empty%
+		\else%
+		\usebeamerfont{section in head/foot}\insertsection%
+		\ifx\insertsubsection\empty%
+		\else%
+		:~\usebeamerfont{subsection in head/foot}\insertsubsection%
+		\fi
+		\fi%
+	\end{beamercolorbox}%
+	\begin{beamercolorbox}[
+		wd=\footerrightwidth,
+		ht=4ex,
+		dp=10pt,
+		rightskip=\beamer@rightmargin,
+		]{frame}%
+		%\raggedleft%
+		\usebeamerfont{framenumber}\hfill\insertframenumber%
+		\if@showtotalframes%
+		~/~\inserttotalframenumber%
+		\fi%
+	\end{beamercolorbox}%
+	\fi%
 }
 
 \setbeamertemplate{title page}
 {
-  \ifx\inserttitlegraphic\empty%
-  \else%
-  \begin{beamercolorbox}[center, wd=\textwidth]{titlegraphic}
-    \inserttitlegraphic%
-  \end{beamercolorbox}%
-  \vspace{10pt}%
-  \fi%
-  \ifx\inserttitle\empty\else%
-  \begin{beamercolorbox}[center, wd=\textwidth]{title}
-    \textcolor{tugreen}{\rule{\textwidth}{1pt}}\\[0.5\baselineskip]%
-    \usebeamerfont{title}\inserttitle
-    \ifx\insertsubtitle\empty%
-      \newline%
-    \else%
-      \\[0.5\baselineskip]%
-      \usebeamerfont{subtitle}%
-      \insertsubtitle\newline%
-    \fi%
-    \textcolor{tugreen}{\rule{\textwidth}{1pt}}%
-  \end{beamercolorbox}%
-  \vspace{\fill}
-  \fi%
-  \ifx\insertauthor\empty%
-  \else%
-  \begin{beamercolorbox}[leftskip=0.2\textwidth, rightskip=0.2\textwidth, wd=\textwidth]{author}
-    \centering\usebeamerfont{author}\insertauthor%
-  \end{beamercolorbox}%
-  \vspace{1ex}%
-  \fi%
-  \ifx\insertdate\empty%
-  \else%
-  \begin{beamercolorbox}[leftskip=0.2\textwidth, rightskip=0.2\textwidth, wd=\textwidth]{date}
-    \centering\usebeamerfont{date}\insertdate%
-  \end{beamercolorbox}%
-  \vspace{1ex}%
-  \fi%
-  \ifx\insertinstitute\empty%
-  \else%
-  \begin{beamercolorbox}[leftskip=0.2\textwidth, rightskip=0.2\textwidth, wd=\textwidth]{institute}
-    \centering\usebeamerfont{institute}\insertinstitute%
-  \end{beamercolorbox}%
-  \fi%
-  \vspace{\fill}
+	\ifx\inserttitlegraphic\empty%
+	\else%
+	\begin{beamercolorbox}[center, wd=\textwidth]{titlegraphic}
+		\inserttitlegraphic%
+	\end{beamercolorbox}%
+	\vspace{10pt}%
+	\fi%
+	\ifx\inserttitle\empty\else%
+	\begin{beamercolorbox}[center, wd=\textwidth]{title}
+		\textcolor{tugreen}{\rule{\textwidth}{1pt}}\\[0.5\baselineskip]%
+		\usebeamerfont{title}\inserttitle
+		\ifx\insertsubtitle\empty%
+		\newline%
+		\else%
+		\\[0.5\baselineskip]%
+		\usebeamerfont{subtitle}%
+		\insertsubtitle\newline%
+		\fi%
+		\textcolor{tugreen}{\rule{\textwidth}{1pt}}%
+	\end{beamercolorbox}%
+	\vspace{\fill}
+	\fi%
+	\ifx\insertauthor\empty%
+	\else%
+	\begin{beamercolorbox}[leftskip=0.2\textwidth, rightskip=0.2\textwidth, wd=\textwidth]{author}
+		\centering\usebeamerfont{author}\insertauthor%
+	\end{beamercolorbox}%
+	\vspace{1ex}%
+	\fi%
+	\ifx\insertdate\empty%
+	\else%
+	\begin{beamercolorbox}[leftskip=0.2\textwidth, rightskip=0.2\textwidth, wd=\textwidth]{date}
+		\centering\usebeamerfont{date}\insertdate%
+	\end{beamercolorbox}%
+	\vspace{1ex}%
+	\fi%
+	\ifx\insertinstitute\empty%
+	\else%
+	\begin{beamercolorbox}[leftskip=0.2\textwidth, rightskip=0.2\textwidth, wd=\textwidth]{institute}
+		\centering\usebeamerfont{institute}\insertinstitute%
+	\end{beamercolorbox}%
+	\fi%
+	\vspace{\fill}
 }
 
 \setbeamertemplate{itemize items}[square]
 
 \setbeamertemplate{frametitle}{%
-  \usebeamerfont{frametitle}\insertframetitle%
+	\usebeamerfont{frametitle}\insertframetitle%
 }
 
 
